@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Image Details</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+</head>
+<body>
+    <style>
+        h1
+            {
+              font-size: 32px;
+              text-shadow: -1px -1px #0c0, -3px 0 4px #000;
+              font-family:Arial, Helvetica, sans-serif;
+              color: #000;
+              padding:16px;
+              font-weight:lighter;
+              -moz-box-shadow: 2px 2px 6px #888;  
+              -webkit-box-shadow: 1px 1px 3px #888;  
+              box-shadow:2px 2px 6px #888;  
+              text-align:center;
+              display:block;
+              margin:16px;
+              background-image:url(images/background-h1-wood.jpg);  
+            }
+            .cent {
+                    display: block;
+                    margin: auto;
+                    }
+    </style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            
+                
+                    {% for thing,name in paths %}
+                    <h1>{{name}}</h1>
+                    <a href={{name}}><p><img src={{thing}} style="height: 250px;" class="img cent"></p></a>
+                    {% endfor %}  
+                    <h1>Status: {{status}}</h1>
+                    <h1>Pathology: {{patho}}</h1>
+                    <h1>Region: {{region}}</h1>
+                    <h1>Nuclei Count: {{cnt}}</h1>
+                    <h2>Bar Plot of Target Name and BioProbe Count for Diabetiec Kidney Disease</h2>
+                </ul>
+
+                <div class="chart" id="bargraph">
+                
+                </div>
+
+                <script>
+                    var graphs = {{plot1 | safe}};
+                    Plotly.plot('bargraph',graphs,{});
+                    var graphs = {{plot2 | safe}};
+                    Plotly.plot('bargraph',graphs,{});
+                </script> 
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

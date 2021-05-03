@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Image Details</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+</head>
+<body>
+    <style>
+        h1
+            {
+              font-size: 32px;
+              text-shadow: -1px -1px #0c0, -3px 0 4px #000;
+              font-family:Arial, Helvetica, sans-serif;
+              color: #000;
+              padding:16px;
+              font-weight:lighter;
+              -moz-box-shadow: 2px 2px 6px #888;  
+              -webkit-box-shadow: 1px 1px 3px #888;  
+              box-shadow:2px 2px 6px #888;  
+              text-align:center;
+              display:block;
+              margin:16px;
+              background-image:url(images/background-h1-wood.jpg);  
+            }
+    </style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="chart" id="bargraph">
+                <style>
+                    .cent {
+                    display: block;
+                    margin: auto;
+                    }
+                </style>
+                    {% for thing,name in paths %}
+                    <a href={{name}}><p><img src={{thing}} style="height: 250px;" class="img cent"></p></a>
+                    <h1>{{name}}</h1>
+                    {% endfor %}  
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<!-- <script>
+    var graphs = {{plot | safe}};
+    Plotly.plot('bargraph',graphs,{});
+</script> -->
